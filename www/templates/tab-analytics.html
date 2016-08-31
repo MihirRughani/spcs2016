@@ -1,0 +1,130 @@
+<ion-view title="Members Analytics">
+    <ion-content>
+        <ion-scroll>
+            <ion-list>
+                <ion-item class="item-divider">
+                    Number Of Members By Chapter
+                </ion-item>
+                <ion-item>
+                    <div class="analytics-chart" ><!--style="float:left; width:40vw; margin-top: 1vh;">-->
+                        <canvas id="doughnut" width="1" height="1" class="chart chart-doughnut" chart-data="chapterMemberData" chart-labels="chapterLabels" chart-colours="chartColors" chart-options="{circumference:10}" style="float:left"></canvas>
+                    </div>
+                    <div class="analytics-labelSet" ng-model="chaptersSummaryData1"><!--style="float:right; width:20vw"-->
+                        <table>
+                            <tr>
+                                <td class="analytics-label" style="background-color: {{chaptersSummaryData1[0].bck}};">
+                                    {{chaptersSummaryData1[0].label}}
+                                </td>
+                                <td class="analytics-value">
+                                    {{chaptersSummaryData1[0].value}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="analytics-label" style="background-color: {{chaptersSummaryData1[1].bck}};">
+                                    {{chaptersSummaryData1[1].label}}
+                                </td>
+                                <td class="analytics-value">
+                                    {{chaptersSummaryData1[1].value}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="analytics-label" style="background-color: {{chaptersSummaryData1[2].bck}};">
+                                    {{chaptersSummaryData1[2].label}}
+                                </td>
+                                <td class="analytics-value">
+                                    {{chaptersSummaryData1[2].value}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="analytics-label" style="background-color: {{chaptersSummaryData1[3].bck}};">
+                                    {{chaptersSummaryData1[3].label}}
+                                </td>
+                                <td class="analytics-value">
+                                    {{chaptersSummaryData1[3].value}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="analytics-label" style="background-color: {{chaptersSummaryData1[4].bck}};">
+                                    {{chaptersSummaryData1[4].label}}
+                                </td>
+                                <td class="analytics-value">
+                                    {{chaptersSummaryData1[4].value}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="analytics-labelSet" ng-model="chaptersSummaryData2">
+                        <table>
+                            <tr>
+                                <td class="analytics-label" style="background-color: {{chaptersSummaryData2[0].bck}};">
+                                    {{chaptersSummaryData2[0].label}}
+                                </td>
+                                <td class="analytics-value">
+                                    {{chaptersSummaryData2[0].value}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="analytics-label" style="background-color: {{chaptersSummaryData2[1].bck}};">
+                                    {{chaptersSummaryData2[1].label}}
+                                </td>
+                                <td class="analytics-value">
+                                    {{chaptersSummaryData2[1].value}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="analytics-label" style="background-color: {{chaptersSummaryData2[2].bck}};">
+                                    {{chaptersSummaryData2[2].label}}
+                                </td>
+                                <td class="analytics-value">
+                                    {{chaptersSummaryData2[2].value}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="analytics-label" style="background-color: {{chaptersSummaryData2[3].bck}};">
+                                    {{chaptersSummaryData2[3].label}}
+                                </td>
+                                <td class="analytics-value">
+                                    {{chaptersSummaryData2[3].value}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="analytics-label" style="background-color: {{chaptersSummaryData2[4].bck}};">
+                                    {{chaptersSummaryData2[4].label}}
+                                </td>
+                                <td class="analytics-value">
+                                    {{chaptersSummaryData2[4].value}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </ion-item>
+                <ion-item class="item-divider">
+                    UPCOMING EVENTS
+                </ion-item>
+                <div style="text-align:center; margin-top:4vmax" ng-if="noupcomingevents">
+                    NO UPCOMING EVENTS
+                </div>
+                <ion-item class="analytics-upcoming" ng-repeat="event in eventsList">
+                    <div style="float:left; margin-right:20px">
+                        <i class="icon ion-spcs-event"></i>
+                    </div>
+                    <div style="float:left;">
+                        <span style="font-size:15px;">{{event.event_name}}</span>
+                        <br/>
+                        <span class="item-text-wrap" style="font-size:12px; color:#9d6dbb">{{event.event_location}}</span>
+                        <br/>
+                        <i style="color:black" class="icon ion-android-time"></i> <span style="font-size:15px;color:black">{{event.event_time}}</span>  <i style="color:black" class="icon ion-android-calendar"></i> <span style="font-size:15px;color:black">{{event.event_date}}</span>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </ion-scroll>
+    </ion-content>
+    <ion-footer-bar style="height:25vmax">
+        <ion-slide-box>
+            <ion-slide ng-repeat="image in images">
+                <div class="item item-divider">MEDIA GALLERY</div>
+                <img ng-src="{{image}}" style="width:100%">
+            </ion-slide>
+        </ion-slide-box>
+    </ion-footer-bar>
+</ion-view>

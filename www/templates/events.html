@@ -1,0 +1,30 @@
+<ion-view title="Events">
+    <ion-content>
+        <ion-list>
+            <ion-item class="item item-divider">UPCOMING EVENTS</ion-item>
+            <ion-item ng-repeat="event in eventsList" style="color: rgb(255, 187, 27); background:rgba(253, 234, 255, 0.35); margin:5px">
+                <div style="float:left; margin-right:20px">
+                    <i class="icon ion-spcs-event"></i>
+                </div>
+                <div style="float:left;">
+                    <span style="font-size:15px;">{{event.event_name}}</span>
+                    <br/>
+                    <span class="item-text-wrap" style="font-size:12px; color:#9d6dbb">{{event.event_location}}</span>
+                    <br/>
+                    <i style="color:black" class="icon ion-android-time"></i> <span style="font-size:15px;color:black">{{event.event_time}}</span>  <i style="color:black" class="icon ion-android-calendar"></i> <span style="font-size:15px;color:black">{{event.event_date}}</span>
+                </div>
+            </ion-item>
+        </ion-list>
+        <div style="color:#c4c4c4;text-align:center; margin-top: 20vmax" ng-if="noupcomingevents">
+            NO EVENTS FOUND.
+        </div>
+    </ion-content>
+    <ion-footer-bar style="height:25vmax">
+        <ion-slide-box>
+            <ion-slide ng-repeat="image in images">
+                <div class="item item-divider">MEDIA GALLERY</div>
+                <img ng-src="{{image}}" style="width:100%">
+            </ion-slide>
+        </ion-slide-box>
+    </ion-footer-bar>
+</ion-view>

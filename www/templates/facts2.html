@@ -1,0 +1,43 @@
+<ion-view title="Also Factual">
+  <ion-content class="padding">
+
+
+
+    <div class="row padding">
+      <div class="col col-50">
+
+      <img class="profile-image" ng-src="{{fMember.face}}"> <!--ng-src="{{friend.face}}"-->
+      <p class="text-center">{{fMember.name}}</p>
+      <p class="text-center"><a class="hbs" href="tel:{{fMember.mobile}}">{{fMember.mobile}}</a></p>
+      <p class="text-center"><a class="hbs" href="mailto:{{fMember.email}}">{{fMember.email}}</a></p>
+    </div>
+
+    </div>
+    </div>
+
+
+
+
+    <div class="hbs list card">
+      <label class="item">
+        <span  class="bold" type="text">City:</span>
+        <span type="text">{{fMember.city}}</span>
+      </label>
+      <label class="item">
+        <span class="bold" type="text">Hometown: </span>
+        <span type="text">{{fMember.hometown}}</span>
+      </label>
+
+      <label class="item">
+        <span class="bold" type="text">Address: </span>
+        <span type="text">{{fMember.address}}</span>
+      </label>
+      <label class="item">
+        <span class="bold" type="text">Birthyear: </span>
+        <span type="text">{{fMember.birthYear}}</span>
+      </label>
+
+    </div>
+
+  </ion-content>
+</ion-view>

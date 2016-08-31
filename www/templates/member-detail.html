@@ -1,0 +1,196 @@
+<ion-view title="Member Detail">
+    <ion-nav-bar class="SPCS-bar">
+            <ion-nav-back-button class="button-clear">
+                <i class="ion-android-arrow-back"></i>
+            </ion-nav-back-button>
+    </ion-nav-bar>
+  <ion-content>
+    <ion-list>
+        <ion-list>
+            <ion-item ng-model="personalinfo">
+                <div class="detail-left item-nec-avatar" style="margin:2vw">
+                    <img style="width:12vmax; height:12vmax" ng-src="{{personalinfo.mm_photo}}">
+                </div>
+                <div style="float:none; margin-top:2vw">
+                    <div class="contact-pDetail">
+                        {{personalinfo.mm_fname}} {{personalinfo.mm_lname}}
+                    </div>
+                    <div class="contact-pDetail mmid">
+                        <h3 class="contact-pDetail-font">LM: {{personalinfo.mm_life_id}}</h3>
+                    </div>
+                    <div class="contact-pDetail ch">
+                        <h3 class="contact-pDetail-font">{{personalinfo.mm_chapter}} Chapter</h3>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item item-divider contact-pDetail-details" style="color:#1fbba6">
+                Personal Information
+            </ion-item>
+            <ion-item ng-model="personalinfo" class="contact-pDetail-details">
+                <div class="detail-left">
+                    <b>Hometown</b>
+                </div>
+                <div ng-if="!ishometownempty" class="detail-right">
+                    {{personalinfo.mm_hometown}}
+                </div>
+                <div ng-if="ishometownempty" class="detail-right">
+                    -
+                </div>
+            </ion-item>
+            <ion-item ng-model="personalinfo" class="contact-pDetail-details">
+                <div class="detail-left">
+                    <b>Father's Name<span style="color:red">*</span></b>
+                </div>
+                <div ng-if="isfathernameempty" class="detail-right">
+                    -
+                </div>
+                <div ng-if="!isfathernameempty" class="detail-right">
+                    {{personalinfo.mm_father_name}}
+                </div>
+            </ion-item>
+            <ion-item ng-model="personalinfo" class="contact-pDetail-details">
+                <div class="detail-left">
+                    <b>Mother's Maiden Name<span style="color:red">*</span></b>
+                </div>
+                <div ng-if="ismothermaidennameempty" class="detail-right">
+                    -
+                </div>
+                <div ng-if="!ismothermaidennameempty" class="detail-right">
+                    {{personalinfo.mm_mother_maiden_name}}
+                </div>
+            </ion-item>
+            <ion-item ng-model="personalinfo" class="contact-pDetail-details">
+                <div class="detail-left" style="width:45%">
+                    <div class="detail-left">
+                        <b>Gender</b>
+                    </div>
+                    <div style="text-align:center">
+                        {{personalinfo.mm_gender}}
+                    </div>
+                </div>
+                <div style="float:none; border-left: 5px solid black;">
+                    <div class="detail-left">
+                        <b>Date of Birth</b>
+                    </div>
+                    <div ng-if="isbirthmonthzero" class="detail-right">
+                        {{personalinfo.mm_birth_year}}
+                    </div>
+                    <div ng-if="isbirthyearzero" class="detail-right">
+                        {{personalinfo.mm_birth_month}}
+                    </div>
+                    <div ng-if="arebirthmonthandyearzero" class="detail-right">
+                        -
+                    </div>
+                    <div ng-if="!arebirthmonthandyearzero" class="detail-right">
+                        {{personalinfo.mm_birth_month}}/{{personalinfo.mm_birth_year}}
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item ng-model="personalinfo" class="contact-pDetail-details">
+                <div class="detail-left">
+                    <b>Occupation</b>
+                </div>
+                <div ng-if="isOccupationempty" class="detail-right">
+                    -
+                </div>
+                <div ng-if="!isOccupationempty" class="detail-right">
+                    {{personalinfo.mm_occupation}}
+                </div>
+            </ion-item>
+            <ion-item class="item item-divider contact-pDetail-details" style="color:#1fbba6">Contact Information</ion-item>
+            <ion-item ng-model="personalinfo" class="contact-pDetail-details">
+                <div class="detail-left">
+                    <b>Address</b>
+                </div>
+                <div ng-if="isaddressempty" class="detail-right">
+                    -
+                </div>
+                <div ng-if="!isaddressempty" class="detail-right">
+                    {{personalinfo.mm_address}}
+                </div>
+            </ion-item>
+            <ion-item ng-model="personalinfo" class="contact-pDetail-details">
+                <div class="detail-left">
+                    <b>City</b>
+                </div>
+                <div ng-if="iscityempty" class="detail-right">
+                    -
+                </div>
+                <div ng-if="!iscityempty" class="detail-right">
+                    {{personalinfo.mm_city}}
+                </div>
+            </ion-item>
+            <ion-item ng-model="personalinfo" class="contact-pDetail-details">
+                <div class="detail-left" style="float:left; width:45%">
+                    <div class="detail-left">
+                        <b>State</b>
+                    </div>
+                    <div ng-if="isstateempty" class="detail-right">
+                        -
+                    </div>
+                    <div ng-if="!isstateempty" class="detail-right">
+                        {{personalinfo.mm_state}}
+                    </div>
+                </div>
+                <div style="float:none; width:55%">
+                    <div style="float:none; text-align:center;margin-left: 2px">
+                        <b>Zip</b>
+                    </div>
+                    <div ng-if="iszipempty" class="detail-right">
+                        -
+                    </div>
+                    <div ng-if="!iszipempty" class="detail-right">
+                        {{personalinfo.mm_zip}}
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item ng-model="personalinfo" class="contact-pDetail-details">
+                <div class="detail-left">
+                    <b>Email</b>
+                </div>
+                <div ng-if="isemailempty" class="detail-right">
+                    -
+                </div>
+                <div ng-if="!isemailempty" class="detail-right">
+                    {{personalinfo.mm_email}}
+                </div>
+            </ion-item>
+            <ion-item class="item item-divider contact-pDetail-details" style="color:#1fbba6"> Family Information</ion-item>
+            <ion-item ng-repeat="member in family">
+                <div class="detail-left" style="margin-right:4vw; margin-top:2vw;">
+                    <figure class="item-nec-avatar">
+                        <img style="width:10vmax; height:10vmax" ng-src="{{member.mm_photo}}">
+                    </figure>
+                </div>
+                <div class="contact-fDetail">
+                    <table>
+                        <tr style="text-align:left;font-weight: 400;font-size: 3vmax">
+                            <td>
+                                {{member.mm_fname}} {{member.mm_lname}}
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3 style="color:#abbba6">{{member.mm_relationship}}</h3>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="border-top: 0.5px solid #cecece; margin-top:3vh;font-weight:400;font-size: 4vw;float:left">
+                    <table style="width:50%;float:left">
+                        <tr>
+                            <td><b>Gender</b></td>
+                            <td style="width:100%"><input style="background-color:white;text-align:center;width:60%" type="text" readonly value="{{member.mm_gender}}"> </td>
+                        </tr>
+                    </table>
+                    <table style="width:50%;float:left;border-left: 0.25px solid #cbcbcb;">
+                        <tr>
+                            <td><b>DOB</b></td>
+                            <td><input style="background-color:white;text-align:center;width:60%" type="text" readonly value="{{member.mm_birth_year}}"> </td>
+                        </tr>
+                    </table>
+                </div>
+            </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

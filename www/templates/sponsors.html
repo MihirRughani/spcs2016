@@ -1,0 +1,18 @@
+<ion-view title="Sponsors">
+    <ion-content>
+        <ion-item class="item-divider "> SPONSORS LIST</ion-item>
+        <ion-list>
+            <ion-item ng-repeat="sponsor in sponsors" style="color: rgb(255, 187, 27);
+             background:rgba(253, 234, 255, 0.35); margin:5px">
+                <div style="float:left">
+                    {{sponsor.fm_fname}}
+                    <h4 style="color:#9d6dbb">{{sponsor.fm_address}}</h4>
+                </div>
+                <div style="float:right;">
+                    <h4 style="color:#9d6dbb">{{sponsor.fm_email}}</h4>
+                    <h4 style="color:#9d6dbb">{{sponsor.fm_phoneh}}</h4>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

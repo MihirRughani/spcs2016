@@ -1,0 +1,66 @@
+<ion-view view-title="Search">
+    <ion-content class="padding">
+        <ion-refresher pulling-text="Pull to refresh.." on-refresh="get_feeds()" refreshing-text="Fetching ..." refreshing-icon="ion-loading-b">
+        </ion-refresher>
+        <ion-item
+             ng-class="{active: isGroupShown(!group)}" ng-click="toggleGroup(!group)" >
+            <div style="float:left; width:10vw;">
+                <i class="icon" ng-class="isGroupShown(!group) ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
+            </div>
+            <div ng-click="toggleGroup(!group)">
+                Filter and Search Members<i style="float:right" class="icon ion-spcs-search-search" ng-click="searchMembers(search)"></i>
+            </div>
+        </ion-item>
+    <ion-list>
+      <ion-item class="item-accordion" ng-show="isGroupShown(!group)">
+
+            <div class="list">
+              <label class="item item-input">
+                FirstName: <input ng-model="search.first_name" type="text" placeholder="First Name">
+              </label>
+
+              <label class="item item-input">
+                  LastName: <input ng-model="search.last_name" type="text" placeholder="Last Name">
+              </label>
+
+              <label class="item item-input">
+                Life Id: <input ng-model="search.life_id" type="text" placeholder="Life Id">
+              </label>
+
+              <label class="item item-input">
+                Maiden Name: <input ng-model="search.maiden_name" type="text" placeholder="Maiden Name">
+              </label>
+
+              <label class="item item-input">
+                Home Town: <input ng-model="search.home_town" type="text" placeholder="Home Town">
+              </label>
+
+                <label class="item item-input">
+                    Date of Birth: <input ng-model="search.birth_year" type="text" placeholder="Birth Year">
+                </label>
+            </div>
+            <div class="padding">
+              <button style="background-color:#1fbba6;color:white" class="button button-block" ng-click="searchMembers(search)">
+                Search Members
+              </button>
+            </div>
+
+      </ion-item>
+      <ion-item class="item-divider">Total SPCS Members:  {{totalMembers}}</ion-item>
+    </ion-list>
+        <div ng-if="members">
+          <ion-list>
+              <ion-item class="member-search-result item-avatar" ng-repeat="member in members | orderBy:'-mm_lname'"
+                      type="item-text-wrap" ng-click="getInfo('{{member.member.mm_id}}')" style="background-color: {{member.bgcolor}}"> <!--href="#/tab/member/{{member.member.mm_id}}"-->
+                <img ng-src="{{member.member.mm_photo}}">
+                <h2>{{member.member.mm_lname}} {{member.member.mm_fname}}</h2>
+              <h4>{{member.member.mm_city}}, {{member.member.mm_state}}</h4>
+            </ion-item>
+          </ion-list>
+        </div>
+        <div style="color:#c4c4c4;text-align:center; margin-top: 20vmax" ng-if="ismemberSearchUnsuccessful">
+            Member Search Unsuccessful!
+        </div>
+        <ion-infinite-scroll ng-if="!ismemberSearchUnsuccessful"  on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>
+    </ion-content>
+  </ion-view>

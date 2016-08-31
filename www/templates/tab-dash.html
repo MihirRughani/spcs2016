@@ -1,0 +1,48 @@
+<ion-view>
+    <ion-nav-bar class="SPCS-bar">
+
+    </ion-nav-bar>
+    <ion-content class="welcome">
+    <div><img src="img/SPCS logo.png" width="100" /></div>
+        <div>
+            <div>
+                Sign in to your
+            </div>
+            <br/>
+            <div style="font-size:50px">
+                SPCS
+            </div>
+            <br/>
+            <div>
+                account
+            </div>
+        </div>
+        <div style="margin-left: 15vmax; margin-top:12vmin">
+            <table>
+                <tr>
+                    <td>
+                        <i class="icon ion-person"></i>
+                    </td>
+                    <td style="padding-left: 5px">
+                        <input style="background-color: #ffa64d" type="text" ng-model="login.username" placeholder="UserName"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <i class="icon ion-locked"></i>
+                    </td>
+                    <td style="padding-left: 5px">
+                        <input type="password" ng-model="login.password" style="background-color: #ffa64d" placeholder="Password"/>
+                    </td>
+                    <td>
+                        <i class="icon ion-ios-help-outline"></i>
+                    </td>
+                </tr>
+            </table>
+            <div style="width:60%;margin-top:8vmax;color:#1fbba6">
+                <input style="background-color:#1fbba6;color:white;font-size:19px" type="button" class="button  button-block" value="SIGN IN" ng-click="signIn(login)">
+            </div>
+        </div>
+    </ion-content>
+
+</ion-view>

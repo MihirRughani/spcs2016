@@ -1,0 +1,72 @@
+<ion-view title="Add Member">
+    <ion-nav-bar class="SPCS-bar">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-android-arrow-back"></i>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content>
+        <ion-list>
+            <ion-item ng-model="family">
+                <div style="float:left; margin-top: 6px">
+                    Username:
+                </div>
+                <div>
+                    <input style="float:right" type="text" ng-model="family.user_name">
+                </div>
+            </ion-item>
+            <ion-item>
+                <div style="float:left; margin-top: 6px">
+                    FirstName:
+                </div>
+                <div>
+                    <input style="float:right" type="text" ng-model="family.first_name">
+                </div>
+            </ion-item>
+            <ion-item>
+                <div style="float:left; margin-top: 6px">
+                    LastName:
+                </div>
+                <div>
+                    <input style="float:right" type="text" ng-model="family.last_name">
+                </div>
+            </ion-item>
+            <ion-item>
+                <div style="float:left; margin-top: 6px">
+                    Relationship:
+                </div>
+                <div>
+                    <input style="float:right" type="text" ng-model="family.relationship">
+                </div>
+            </ion-item>
+            <ion-item>
+                <div style="float:left; margin-top: 6px">
+                    Gender:
+                </div>
+                <div>
+                    <input style="float:right" type="text" ng-model="family.gender">
+                </div>
+            </ion-item>
+            <ion-item>
+                <div style="float:left; margin-top: 6px">
+                    BirthMonth:
+                </div>
+                <div>
+                    <input style="float:right" type="text" ng-model="family.birth_month">
+                </div>
+            </ion-item>
+            <ion-item>
+                <div style="float:left; margin-top: 6px">
+                    BirthYear:
+                </div>
+                <div>
+                    <input style="float:right" type="text" ng-model="family.birth_year">
+                </div>
+            </ion-item>
+            <ion-item>
+                <div style="width:60%;margin-top:8vmax">
+                    <input type="button" class="button  button-block button-positive" value="OK" ng-click="addFMember(family)">
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

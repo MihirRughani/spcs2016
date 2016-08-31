@@ -1,0 +1,126 @@
+<ion-view title="Accounts">
+    <ion-nav-buttons side="left">
+        <button style="background-color: #ffa64d; color:white" class="button" ng-click="cancelEdit()">
+            Cancel
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+    <button style="background-color: #ffa64d; color:white" class="button" ng-click="saveData(personalinfo)">
+        Save
+    </button>
+</ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item ng-model="personalinfo">
+                <div class="detail-left" style="margin-left:4vw; margin-right:4vw; margin-top:2vw;">
+                    <figure class="item-nec-avatar">
+                        <img style="width:15vmax; height:15vmax" ng-show="imgURI !== undefined" ng-src="{{imgURI}}" ng-click="clickPicture()">
+                        <figcaption>
+                            <span style="width:12vmax; height:12vmax; color:#b2b2b2; text-align: center">Edit photo</span>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div style="float:none; margin-left: 35vw; border-left: 2px solid #dddddd">
+                    <div class="contact-pDetail">
+                        {{personalinfo.mm_fname}} {{personalinfo.mm_lname}}
+                    </div>
+                    <hr/>
+                    <div class="contact-pDetail mmid">
+                        <h3 class="contact-pDetail-font">LM: {{personalinfo.mm_life_id}}</h3>
+                    </div>
+                    <hr/>
+                    <div class="contact-pDetail ch">
+                        <h3 class="contact-pDetail-font">{{personalinfo.mm_chapter}} Chapter</h3>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item item-divider contact-pDetail-details" style="color:#1fbba6;float:none">
+                Personal Information
+            </ion-item>
+            <ion-item ng-model="personalinfo" style="font-size: 4vw;font-weight:400">
+                    <span style="float:left; margin-top: 8px; color:black;"><b>Hometown</b></span>
+                    <span style="float:right;width:30%; margin-left:10vw"><input style="text-align:right;float:right;font-size: 4vw; " type="text" ng-model="personalinfo.mm_hometown" value="{{personalinfo.mm_hometown}}"></span>
+            </ion-item>
+            <ion-item ng-model="personalinfo" style="font-size: 4vw;font-weight:400">
+                    <!--<span style="float:left; margin-top: 8px;"><b>Father's Name</b><span style="color:red">*</span></span>
+                    <span style="float:right;width:30%; margin-left:10vw"><input style="text-align:right;float:right;font-size: 4vw; " type="text" required ng-model="personalinfo.mm_father_name" value="{{personalinfo.mm_father_name}}"></span>-->
+                <span style="float:left; margin-top: 8px;"><b>Father's Name</b><span style="color:red">*</span></span>
+                <input style="text-align:right;float:right;font-size: 4vw; width:100px" type="text" required ng-model="personalinfo.mm_father_name" value="{{personalinfo.mm_father_name}}"></span>
+            </ion-item>
+            <ion-item ng-model="personalinfo" style="font-size: 4vw;font-weight:400">
+                    <span style="float:left; margin-top: 8px;"><b>Mother Maiden Name</b><span style="color:red">*</span></span>
+                    <span style="float:right;width:30%;margin-left:8vw"><input style="text-align:right;float:right;font-size: 4vw; width:100px " type="text" required ng-model="personalinfo.mm_mother_maiden_name" value="{{personalinfo.mm_mother_maiden_name}}"></span>
+            </ion-item>
+            <ion-item ng-model="personalinfo" style="font-size: 4vw;font-weight:400">
+                <table style="width:50%;float:left">
+                    <tr>
+                        <td><b>Gender</b></td>
+                        <td style="width:100%"><input style="text-align:center;width:60%" type="text" value="{{personalinfo.mm_gender}}"> </td>
+                    </tr>
+                </table>
+                <table style="width:50%;float:left;border-left: 0.25px solid #cbcbcb;">
+                    <tr>
+                        <td><b>DOB</b></td>
+                        <td><input style="text-align:center;width:22px" type="number" placeholder="mm" value="{{personalinfo.mm_birth_month}}"> </td>
+                        <td><input style="text-align:center;width:35px" type="number" placeholder="yyyy" value="{{personalinfo.mm_birth_year}}"> </td>
+                    </tr>
+                </table>
+            </ion-item>
+            <ion-item class="item item-divider contact-pDetail-details" style="color:#1fbba6">Contact Information</ion-item>
+            <ion-item ng-model="personalinfo" style="font-weight:400;font-size: 4vw;">
+                <div>
+                    <span style="float:left; margin-top: 8px"><b>Address</b></span>
+                    <span style="float:right;width:30%; margin-left:10vw"><input style="text-align:right;float:right;font-size: 4vw; " type="text" ng-model="personalinfo.mm_address" value="{{personalinfo.mm_address}}"></span>
+                </div>
+            </ion-item>
+            <ion-item class="item item-divider contact-pDetail-details" style="color:#1fbba6;">
+                <!--<div style="float:left; margin-top:12px">-->
+                    Family Information
+                <!--</div>-->
+                <!--<div style="float:right" ng-click="addFamilyMember()">
+                    <button class="button button-icon button-clear ion-plus-round" style="color:#1fbba6;"> Add Member</button>
+                </div>-->
+            </ion-item>
+            <ion-item ng-repeat="member in family">
+                <div class="detail-left" style="margin-right:4vw; margin-top:2vw;">
+                    <figure class="item-nec-avatar">
+                        <img style="width:10vmax; height:10vmax" ng-src="{{member.mm_photo}}">
+                    </figure>
+                </div>
+                <div class="contact-fDetail">
+                    <table>
+                        <tr>
+                            <td>
+                                <input placeholder="First Name" style="width:30vw;text-align:left;font-weight: 400;font-size: 4vw" type="text" value="{{member.mm_fname}}">
+                            </td>
+                            <td style="margin-left:10px">
+                                <input placeholder="Last Name" style="width:30vw;text-align:left;font-weight: 400;font-size: 4vw" type="text" value="{{member.mm_lname}}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3 style="color:#abbba6">{{member.mm_relationship}}</h3>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="border-top: 0.5px solid #cecece; margin-top:3vh;font-weight:400;font-size: 4vw;float:left">
+                    <table style="width:50%;float:left">
+                        <tr>
+                            <td><b>Gender</b></td>
+                            <td style="width:100%"><input style="text-align:center;width:60%" type="text" value="{{member.mm_gender}}"> </td>
+                        </tr>
+                    </table>
+                    <table style="width:50%;float:left;border-left: 0.25px solid #cbcbcb;">
+                        <tr>
+                            <td><b>DOB</b></td>
+                            <td><input style="text-align:center;width:20px" type="number" placeholder="mm" value="{{member.mm_birth_month}}"> </td>
+                            <td><input style="text-align:center;width:35px" type="number" placeholder="yyyy" value="{{member.mm_birth_year}}"> </td>
+                        </tr>
+                    </table>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
